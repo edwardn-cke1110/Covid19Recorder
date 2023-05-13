@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Covid19Recorder</string>
+    <string name="welcomeText">Welcome</string>
+    <string name="loginBtnText">Login</string>
+    <string name="signUpText">Don\'t have an account? Create an account</string>
+    <string name="resetPasswordText">Forgot password?</string>
 </resources>
