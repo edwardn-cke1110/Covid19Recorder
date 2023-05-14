@@ -9,6 +9,6 @@ public class share_records extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_share_records);
+        setContentView(R.layout.sharerecords);
     }
 }
