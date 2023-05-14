@@ -13,14 +13,6 @@
         android:theme="@style/Theme.Covid19Recorder"
         tools:targetApi="31">
         <activity
-            android:name=".share_records"
-            android:exported="false" />
-        <activity
-            android:name=".yours_Symptoms"
-            android:exported="false"
-            android:label="@string/title_activity_yours_symptoms"
-            android:theme="@style/Theme.Covid19Recorder.NoActionBar" />
-        <activity
             android:name=".WelcomeActivity"
             android:exported="true">
             <intent-filter>
