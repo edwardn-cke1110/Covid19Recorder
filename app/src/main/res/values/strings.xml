@@ -4,4 +4,7 @@
     <string name="loginBtnText">Login</string>
     <string name="signUpText">Don\'t have an account? Create an account</string>
     <string name="resetPasswordText">Forgot password?</string>
+    <string name="loginHeaderText">Log into your account</string>
+    <string name="usernameText">Username</string>
+    <string name="passwordText">Password</string>
 </resources>
