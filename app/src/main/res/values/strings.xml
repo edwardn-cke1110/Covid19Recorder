@@ -1,10 +1,18 @@
 <resources>
-    <string name="app_name">Covid19Recorder</string>
-    <string name="welcomeText">Welcome</string>
-    <string name="loginBtnText">Login</string>
-    <string name="signUpText">Don\'t have an account? Create an account</string>
-    <string name="resetPasswordText">Forgot password?</string>
-    <string name="loginHeaderText">Log into your account</string>
-    <string name="usernameText">Username</string>
-    <string name="passwordText">Password</string>
+    <string name="app_name">Covid-19 Symptoms Recorder</string>
+
+    <string name="welcome_text">Welcome</string>
+    <string name="login_header_text">Log into your account</string>
+    <string name="register_header_text">Register new account</string>
+
+    <string name="login_btn_text">Login</string>
+    <string name="register_btn_text">Register</string>
+
+    <string name="sign_up_text">Don\'t have an account? Create an account</string>
+    <string name="reset_password_text">Forgot password?</string>
+
+    <string name="username_text">Email</string>
+    <string name="confirm_username_text">Confirm email</string>
+    <string name="password_text">Password</string>
+    <string name="confirm_password_text">Confirm password</string>
 </resources>
