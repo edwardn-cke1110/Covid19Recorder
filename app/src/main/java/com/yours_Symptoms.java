@@ -1,4 +1,4 @@
-package com.example.covid19recorder;
+package com;
 
 import android.os.Bundle;
 
