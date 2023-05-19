@@ -12,6 +12,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Covid19Recorder"
         tools:targetApi="31">
+
+        <activity
+            android:name=".NewMessage"
+            android:exported="false" />
+
+        <activity
+            android:name=".Settings"
+            android:exported="false" />
+
+        <activity
+            android:name=".share_records"
+            android:exported="false" />
+
         <activity
             android:name=".WelcomeActivity"
             android:exported="true">
@@ -23,15 +36,17 @@
 
             <meta-data
                 android:name="android.app.lib_name"
-                android:value="" />
+                android:value="your_lib_name_here" /> <!-- Provide a valid value for your library name -->
         </activity>
+
         <activity
             android:name=".HomeActivity"
             android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
-                android:value="" />
+                android:value="your_lib_name_here" /> <!-- Provide a valid value for your library name -->
         </activity>
+
     </application>
 
 </manifest>
