@@ -1,26 +1,18 @@
 <resources>
-    <string name="app_name">Covid19Recorder</string>
-    <string name="welcomeText">Welcome</string>
-    <string name="loginBtnText">Login</string>
-    <string name="signUpText">Don\'t have an account? Create an account</string>
-    <string name="resetPasswordText">Forgot password?</string>
-    <string name="title_activity_yours_symptoms">yours_Symptoms</string>
-    <string name="tab_text_1">Tab 1</string>
-    <string name="tab_text_2">Tab 2</string>
-    <string name="title_activity_settings">SettingsActivity</string>
+    <string name="app_name">Covid-19 Symptoms Recorder</string>
 
-    <!-- Preference Titles -->
-    <string name="messages_header">Messages</string>
-    <string name="sync_header">Sync</string>
+    <string name="welcome_text">Welcome</string>
+    <string name="login_header_text">Log into your account</string>
+    <string name="register_header_text">Register new account</string>
 
-    <!-- Messages Preferences -->
-    <string name="signature_title">Your signature</string>
-    <string name="reply_title">Default reply action</string>
+    <string name="login_btn_text">Login</string>
+    <string name="register_btn_text">Register</string>
 
-    <!-- Sync Preferences -->
-    <string name="sync_title">Sync email periodically</string>
-    <string name="attachment_title">Download incoming attachments</string>
-    <string name="attachment_summary_on">Automatically download attachments for incoming emails
-    </string>
-    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="sign_up_text">Don\'t have an account? Create an account</string>
+    <string name="reset_password_text">Forgot password?</string>
+
+    <string name="username_text">Email</string>
+    <string name="confirm_username_text">Confirm email</string>
+    <string name="password_text">Password</string>
+    <string name="confirm_password_text">Confirm password</string>
 </resources>
