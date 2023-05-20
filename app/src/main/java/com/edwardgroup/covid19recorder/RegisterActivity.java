@@ -1,5 +1,6 @@
 package com.edwardgroup.covid19recorder;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -10,18 +11,74 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firestore.v1.FirestoreGrpc;
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class RegisterActivity extends AppCompatActivity {
 
     // variable declarations
     private final String TAG = "RegisterActivity";
 
-    private AuthManager auther = new AuthManager();
+    private FirebaseAuth auth = FirebaseAuth.getInstance();
+    private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
 
 
     // methods
     // user creation
 
+    public void createUser(String email, String password)
+    {
+        auth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful())
+                        {
+                            // Sign in success
+                            Log.d(TAG, "createUserWithEmail: success");
+                            addUserToFirebase(auth.getUid());
+                            startActivity(new Intent(RegisterActivity.this, HomeActivity.class));
+                            finish();
+                        } else
+                        {
+                            // sign in fails
+                            Log.w(TAG, "createUserWithEmail: failure", task.getException());
+                            Toast.makeText(RegisterActivity.this, "An error occurred, please try again", Toast.LENGTH_LONG).show();
+                        }
+                    }
+                });
+    }
+
+    public void addUserToFirebase(String uid)
+    {
+        // add blank BSON file to Firestore
+        Map<String, Object> newUser = new HashMap<>();
+
+        db.collection("usr").document(uid)
+                .set(newUser)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Log.d(TAG, "Database entry written");
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w(TAG, "Error writing document", e);
+                    }
+                });
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,21 +95,22 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String registerEmail = emailTxt.getText().toString();
+                String registerEmailConfirm = confirmEmailTxt.getText().toString();
                 String registerPassword = passwordTxt.getText().toString();
+                String registerPasswordConfirm = confirmPasswordTxt.getText().toString();
 
-                auther.createUser(registerEmail, registerPassword);
-//                auther.addUserToFirebase(registerEmail, registerPassword);
+                if (!registerEmail.equals(registerEmailConfirm))
+                {
+                    Toast.makeText(RegisterActivity.this, "Emails do not match", Toast.LENGTH_LONG).show();
+                    return;
+                }
 
-                if (auther.checkAccount(auther.getUser()))
+                if (!registerPassword.equals(registerPasswordConfirm))
                 {
-                    Log.d(TAG, "onClick: user created, switch to home activity");
-                    startActivity(new Intent(RegisterActivity.this, HomeActivity.class));
+                    Toast.makeText(RegisterActivity.this, "Passwords do not match", Toast.LENGTH_LONG).show();
+                    return;
                 }
-                else
-                {
-                    Log.d(TAG, "onClick: account creation failed");
-                    Toast.makeText(RegisterActivity.this, "An error occurred, please try again", Toast.LENGTH_LONG).show();
-                }
+                createUser(registerEmail, registerPassword);
             }
         });
     }

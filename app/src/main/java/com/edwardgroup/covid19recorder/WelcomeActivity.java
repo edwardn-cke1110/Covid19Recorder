@@ -9,15 +9,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class WelcomeActivity extends AppCompatActivity {
     private final String TAG = "WelcomeActivity";
-    private AuthManager auther = new AuthManager();
+    private FirebaseAuth auth = FirebaseAuth.getInstance();
 
     @Override
     public void onStart() {
         super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-        if(auther.checkAccount(auther.getUser())){
+        if(auth.getCurrentUser() != null){
             Log.d(TAG, "onStart: Logged in, switch to HomeActivity");
             startActivity(new Intent(WelcomeActivity.this, HomeActivity.class));
         }
@@ -29,7 +30,7 @@ public class WelcomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
 
-        Button login = (Button) findViewById(R.id.loginButton);
+        Button login = (Button) findViewById(R.id.welcomeLoginBtn);
         TextView register = (TextView) findViewById(R.id.signupText);
 
 

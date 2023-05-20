@@ -24,7 +24,7 @@
             android:text="@string/welcome_text" />
 
         <Button
-            android:id="@+id/loginButton"
+            android:id="@+id/welcomeLoginBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginVertical="10dp"
@@ -38,7 +38,7 @@
             android:text="@string/sign_up_text" />
 
         <TextView
-            android:id="@+id/passwordRText"
+            android:id="@+id/passwordResetText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginVertical="10dp"
