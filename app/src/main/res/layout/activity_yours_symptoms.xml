@@ -3,75 +3,100 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".YoursSymptoms">
+    android:layout_height="match_parent">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
-        android:title="What's your Symptoms?"
-        android:titleTextColor="@android:color/white"
+        app:title="WHAT'S YOUR SYMPTOMS"
+        app:titleTextColor="@android:color/white"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
-        android:id="@+id/buttonSymptom1"
-        android:layout_width="0dp"
+        android:id="@+id/buttonFever"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Symptom 1"
+        android:text="Fever"
         app:layout_constraintTop_toBottomOf="@id/toolbar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/buttonSymptom2"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"/>
+        android:layout_marginTop="16dp"/>
 
     <Button
-        android:id="@+id/buttonSymptom2"
-        android:layout_width="0dp"
+        android:id="@+id/buttonCough"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Symptom 2"
-        app:layout_constraintTop_toBottomOf="@id/toolbar"
-        app:layout_constraintStart_toEndOf="@id/buttonSymptom1"
-        app:layout_constraintEnd_toStartOf="@id/buttonSymptom3"
-        android:layout_marginTop="16dp"
-        android:layout_marginHorizontal="8dp"/>
-
-    <!-- Add the remaining 6 buttons with similar constraints -->
-
-    <Button
-        android:id="@+id/buttonSymptom7"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Symptom 7"
-        app:layout_constraintTop_toBottomOf="@id/buttonSymptom5"
+        android:text="Cough"
+        app:layout_constraintTop_toBottomOf="@id/buttonFever"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/buttonSymptom8"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"/>
+        android:layout_marginTop="16dp"/>
 
     <Button
-        android:id="@+id/buttonSymptom8"
-        android:layout_width="0dp"
+        android:id="@+id/buttonShortnessOfBreath"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Symptom 8"
-        app:layout_constraintTop_toBottomOf="@id/buttonSymptom6"
-        app:layout_constraintStart_toEndOf="@id/buttonSymptom7"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="8dp"/>
+        android:text="Shortness of Breath"
+        app:layout_constraintTop_toBottomOf="@id/buttonCough"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    <Button
+        android:id="@+id/buttonFatigue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fatigue"
+        app:layout_constraintTop_toBottomOf="@id/buttonShortnessOfBreath"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    <Button
+        android:id="@+id/buttonMuscleAches"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Muscle Aches"
+        app:layout_constraintTop_toBottomOf="@id/buttonFatigue"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    <Button
+        android:id="@+id/buttonHeadache"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Headache"
+        app:layout_constraintTop_toBottomOf="@id/buttonMuscleAches"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    <Button
+        android:id="@+id/buttonSoreThroat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sore Throat"
+        app:layout_constraintTop_toBottomOf="@id/buttonHeadache"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    <Button
+        android:id="@+id/buttonLossOfTaste"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Loss of Taste"
+        app:layout_constraintTop_toBottomOf="@id/buttonSoreThroat"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="16dp"/>
 
     <Button
         android:id="@+id/buttonSend"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Send"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/buttonLossOfTaste"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintVertical_bias="1.0"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"/>
 
+</androidx.constraintlayout.widget.ConstraintLayout>
