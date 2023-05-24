@@ -1,0 +1,14 @@
+package com.edwardgroup.covid19recorder;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+
+public class YoursSymptoms extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_yours_symptoms);
+    }
+}
