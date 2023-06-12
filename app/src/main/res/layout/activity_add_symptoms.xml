@@ -43,7 +43,7 @@
                 android:id="@+id/coughTextview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Coughing" />
+                android:text="@string/coughing" />
         </LinearLayout>
 
         <LinearLayout
@@ -67,7 +67,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
-                android:text="Shortness of breath" />
+                android:text="@string/shortness_of_breath" />
         </LinearLayout>
 
         <LinearLayout
@@ -90,7 +90,7 @@
                 android:id="@+id/sneezeTextview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Sneezing" />
+                android:text="@string/sneezing" />
         </LinearLayout>
 
         <LinearLayout
@@ -113,7 +113,7 @@
                 android:id="@+id/tasteLossTextview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Loss of taste" />
+                android:text="@string/loss_of_taste" />
         </LinearLayout>
 
     </LinearLayout>
@@ -143,7 +143,7 @@
                 android:id="@+id/feverTextview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Fever" />
+                android:text="@string/fever" />
         </LinearLayout>
 
         <LinearLayout
@@ -167,7 +167,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
-                android:text="Muscle pains" />
+                android:text="@string/muscle_pains" />
         </LinearLayout>
 
         <LinearLayout
@@ -190,7 +190,7 @@
                 android:id="@+id/soreThroatTextview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Sore throat" />
+                android:text="@string/sore_throat" />
         </LinearLayout>
 
         <LinearLayout
@@ -213,7 +213,7 @@
                 android:id="@+id/fatigueTextview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Fatigue" />
+                android:text="@string/fatigue" />
         </LinearLayout>
     </LinearLayout>
 
@@ -222,6 +222,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="150dp"
-        android:text="Save" />
+        android:text="@string/save" />
 
 </LinearLayout>
