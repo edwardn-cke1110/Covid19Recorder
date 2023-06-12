@@ -1,6 +1,5 @@
 package com.edwardgroup.covid19recorder;
 
-import androidx.annotation.GravityInt;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -17,12 +17,18 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -39,11 +45,13 @@ public class HomeActivity extends AppCompatActivity {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     DocumentReference documentReference = db.collection("usr").document(auth.getCurrentUser().getUid());
 
-    LinearLayout listLayout;
+    LinearLayout symptomListLayout;
+    LinearLayout logListLayout;
 
     ImageButton settingsBtn;
     Button isInfectedBtn;
     Button changeSymptomsBtn;
+    Button addMessageBtn;
 
     ScrollView symptomView;
     TextView userName; // name of user, not the username
@@ -58,6 +66,7 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        updateMessageList();
         updateSymptomList();
     }
 
@@ -66,11 +75,13 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        listLayout = findViewById(R.id.symptomListLayout);
+        symptomListLayout = findViewById(R.id.symptomListLayout);
+        logListLayout = findViewById(R.id.logListLayout);
 
         settingsBtn = (ImageButton) findViewById(R.id.settingsBtn);
         isInfectedBtn = (Button) findViewById(R.id.isInfectedBtn);
         changeSymptomsBtn = (Button) findViewById(R.id.changeSymptomsButton);
+        addMessageBtn = (Button) findViewById(R.id.addMessageButton);
 
         symptomView = (ScrollView) findViewById(R.id.symptomView);
         userName = (TextView) findViewById(R.id.userNameTv); // name of user, not the username
@@ -89,6 +100,13 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(HomeActivity.this, AddSymptomsActivity.class));
+            }
+        });
+
+        addMessageBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(HomeActivity.this, AddMessageActivity.class));
             }
         });
 
@@ -172,6 +190,49 @@ public class HomeActivity extends AppCompatActivity {
         return ll;
     }
 
+    private LinearLayout addMessage(String message, Timestamp timestamp)
+    {
+        LinearLayout ll = new LinearLayout(HomeActivity.this);
+
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+        );
+        params.setMargins(10,10,10,10);
+        ll.setLayoutParams(params);
+        ll.setOrientation(LinearLayout.HORIZONTAL);
+        ll.setGravity(Gravity.CENTER);
+        ll.setBackgroundColor(getColor(R.color.gray));
+
+        // set message
+        LinearLayout.LayoutParams messsageParams = new LinearLayout.LayoutParams(
+                0,
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                2
+        );
+
+        TextView messageTv = new TextView(HomeActivity.this);
+        messageTv.setLayoutParams(messsageParams);
+        messageTv.setGravity(Gravity.LEFT);
+        messageTv.setText(message);
+
+        LinearLayout.LayoutParams timestampParams = new LinearLayout.LayoutParams(
+                0,
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                1
+        );
+
+        TextView timestampTv = new TextView(HomeActivity.this);
+        timestampTv.setLayoutParams(timestampParams);
+        timestampTv.setGravity(Gravity.RIGHT);
+        timestampTv.setText(timestamp.toDate().toString());
+
+        ll.addView(messageTv);
+        ll.addView(timestampTv);
+
+        return ll;
+    };
+
 
     private boolean userIsInfected() {
         ArrayList<String> symptomList = (ArrayList<String>)document.getData().get("symptoms");
@@ -184,7 +245,7 @@ public class HomeActivity extends AppCompatActivity {
 
     private void updateSymptomList()
     {
-        listLayout.removeAllViews();
+        symptomListLayout.removeAllViews();
         documentReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
@@ -202,9 +263,16 @@ public class HomeActivity extends AppCompatActivity {
                             for ( String symptom : (List<String>) Objects.requireNonNull(document.getData().get("symptoms"))
                             )
                             {
-                                listLayout.addView(addSymptom(symptom));
+                                symptomListLayout.addView(addSymptom(symptom));
                             }
                             isInfectedBtn.setText("I\'m no longer infected");
+                            isInfectedBtn.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    removeAllSymptoms();
+                                    recreate();
+                                }
+                            });
                             changeSymptomsBtn.setVisibility(View.VISIBLE);
                         }
                         else
@@ -212,7 +280,7 @@ public class HomeActivity extends AppCompatActivity {
                             // set text if not infected
 
                             tv.setText(R.string.not_affected);
-                            listLayout.addView(tv);
+                            symptomListLayout.addView(tv);
                         }
 
                     } else {
@@ -223,5 +291,44 @@ public class HomeActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private void removeAllSymptoms()
+    {
+        documentReference.update("symptoms", Collections.emptyList())
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Log.d(TAG, "DocumentSnapshot successfully updated!");
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w(TAG, "Error updating document", e);
+                    }
+                });
+    }
+
+    private void updateMessageList()
+    {
+        logListLayout.removeAllViews();
+
+        documentReference
+                .collection("messages")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+//                                Log.d(TAG, document.getId() + " => " + document.getData());
+                                logListLayout.addView(addMessage((String) document.getData().get("message"), (Timestamp) document.getData().get("time")));
+                            }
+                        } else {
+                            Log.d(TAG, "Error getting documents: ", task.getException());
+                        }
+                    }
+                });
     }
 }

@@ -15,6 +15,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.Timestamp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -83,6 +84,15 @@ public class RegisterActivity extends AppCompatActivity {
                         Log.w(TAG, "Error writing document", e);
                     }
                 });
+
+        Map<String, Object> newMessage = new HashMap<>();
+        newMessage.put("message", "Account created");
+        newMessage.put("timestamp", Timestamp.now());
+
+        db.collection("usr")
+                .document(uid)
+                .collection("messages")
+                .add(newMessage);
     }
 
     @Override

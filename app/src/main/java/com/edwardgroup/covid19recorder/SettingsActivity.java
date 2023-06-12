@@ -19,11 +19,21 @@ public class SettingsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_settings);
 
         Button signOutBtn = (Button) findViewById(R.id.signOutBtn);
+        Button shareRecordsBtn = (Button) findViewById(R.id.settingsShareButton);
+
         signOutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 auth.signOut();
                 startActivity(new Intent(SettingsActivity.this, WelcomeActivity.class));
+                finish();
+            }
+        });
+
+        shareRecordsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(SettingsActivity.this, ShareRecordsActivity.class));
             }
         });
     }
