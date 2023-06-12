@@ -12,37 +12,37 @@
         android:id="@+id/settingsTv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Settings"
+        android:text="@string/settings"
         android:textSize="30sp" />
 
     <Button
         android:id="@+id/settingsAccountButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Account" />
+        android:text="@string/account" />
 
     <Button
         android:id="@+id/settingsNotiButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Notifications" />
+        android:text="@string/notifications" />
 
     <Button
         android:id="@+id/settingsSupportButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Help &amp; Support" />
+        android:text="@string/help_and_support" />
 
     <Button
         android:id="@+id/settingsShareButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Share Records" />
+        android:text="@string/share_records" />
 
     <Button
         android:id="@+id/signOutBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Sign Out" />
+        android:text="@string/sign_out" />
 
 </LinearLayout>

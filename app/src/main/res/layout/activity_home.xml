@@ -33,7 +33,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
-                android:text="Patient"
+                android:text="@string/patient"
                 android:textSize="50sp"
 
                 app:layout_constraintStart_toStartOf="parent"
@@ -56,13 +56,13 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Symptoms" />
+                android:text="@string/symptoms" />
 
             <Button
                 android:id="@+id/changeSymptomsButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Edit Symptoms"
+                android:text="@string/edit_symptoms"
                 android:textSize="12sp"
                 android:visibility="gone" />
         </LinearLayout>
@@ -91,13 +91,13 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Messages" />
+                android:text="@string/messages" />
 
             <Button
                 android:id="@+id/addMessageButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Add Message"
+                android:text="@string/add_message"
                 android:textSize="12sp"
                 android:visibility="visible" />
         </LinearLayout>
@@ -121,7 +121,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="1dp"
-            android:text="I tested positive" />
+            android:text="@string/tested_positive" />
 
     </LinearLayout>
 

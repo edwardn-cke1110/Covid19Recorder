@@ -265,7 +265,7 @@ public class HomeActivity extends AppCompatActivity {
                             {
                                 symptomListLayout.addView(addSymptom(symptom));
                             }
-                            isInfectedBtn.setText("I\'m no longer infected");
+                            isInfectedBtn.setText(R.string.no_longer_affected);
                             isInfectedBtn.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {

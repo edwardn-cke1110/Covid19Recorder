@@ -1,25 +1,61 @@
 <resources>
     <string name="app_name">Covid-19 Symptoms Recorder</string>
 
+<!--    Headers-->
     <string name="welcome_text">Welcome</string>
     <string name="login_header_text">Log into your account</string>
     <string name="register_header_text">Register new account</string>
+    <string name="whats_your_symptom">What\'s your symptom?</string>
+    <string name="add_new_message">Add new message</string>
+    <string name="edit_symptoms">Edit Symptoms</string>
+    <string name="settings">Settings</string>
 
+    <string name="patient">Patient</string>
+    <string name="symptoms">Symptoms</string>
+    <string name="messages">Messages</string>
+
+<!--    Button texts-->
     <string name="login_btn_text">Login</string>
     <string name="register_btn_text">Register</string>
+    <string name="add_message">Add Message</string>
+    <string name="save">Save</string>
+    <string name="tested_positive">I tested positive</string>
+    <string name="send">Send</string>
+    <string name="remember_this_doctor">Remember this doctor for next time</string>
+    <string name="no_longer_affected">I\'m no longer affected</string>
+
+<!--    Button speak-->
+    <string name="settings_btn_speak">Settings Button</string>
 
     <string name="sign_up_text">Don\'t have an account? Create an account</string>
     <string name="reset_password_text">Forgot password?</string>
 
+<!--    EditText-->
     <string name="username_text">Email</string>
     <string name="confirm_username_text">Confirm email</string>
     <string name="password_text">Password</string>
     <string name="confirm_password_text">Confirm password</string>
-    <string name="settings_btn_speak">Settings Button</string>
-    <string name="default_name">((name))</string>
-    <string name="symptoms">Symptoms</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="doctor_name">Doctor Name</string>
+    <string name="doctor_email">Doctor Email</string>
+    <string name="doctor_phone_number">Doctor Phone Number</string>
+
+<!--    Settings menu-->
+    <string name="account">Account</string>
+    <string name="notifications">Notifications</string>
+    <string name="help_and_support"><![CDATA[Help & Support]]></string>
+    <string name="share_records">Share Records</string>
+    <string name="sign_out">Sign Out</string>
+
     <string name="not_affected">Not currently affected by Covid-19</string>
-    <string name="whats_your_symptom">What\'s your symptom?</string>
+
+    <!--    Symptoms-->
+    <string name="coughing">Coughing</string>
+    <string name="shortness_of_breath">Shortness of breath</string>
+    <string name="sneezing">Sneezing</string>
+    <string name="loss_of_taste">Loss of taste</string>
+    <string name="fever">Fever</string>
+    <string name="muscle_pains">Muscle pains</string>
+    <string name="sore_throat">Sore throat</string>
+    <string name="fatigue">Fatigue</string>
+
 </resources>
