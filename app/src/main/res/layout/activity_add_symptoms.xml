@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+    android:padding="20dp"
+    tools:context=".AddSymptomsActivity">
+
+    <TextView
+        android:id="@+id/addSymptomHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="60dp"
+
+        android:text="@string/whats_your_symptom"
+        android:textSize="30sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/coughLayout"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@color/gray"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <CheckBox
+                android:id="@+id/coughCheckbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="top" />
+
+            <TextView
+                android:id="@+id/coughTextview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Coughing" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/sobLayout"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@color/gray"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <CheckBox
+                android:id="@+id/sobCheckbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="top" />
+
+            <TextView
+                android:id="@+id/sobTextview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="Shortness of breath" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/sneezeLayout"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@color/gray"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <CheckBox
+                android:id="@+id/sneezeCheckbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="top" />
+
+            <TextView
+                android:id="@+id/sneezeTextview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sneezing" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/tasteLossLayout"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@color/gray"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <CheckBox
+                android:id="@+id/tasteLossCheckbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="top" />
+
+            <TextView
+                android:id="@+id/tasteLossTextview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Loss of taste" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/feverLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@color/gray"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <CheckBox
+                android:id="@+id/feverCheckbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="top" />
+
+            <TextView
+                android:id="@+id/feverTextview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fever" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/musclePainLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@color/gray"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <CheckBox
+                android:id="@+id/musclePainCheckbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="top" />
+
+            <TextView
+                android:id="@+id/musclePainTextview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="Muscle pains" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/soreThroatLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@color/gray"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <CheckBox
+                android:id="@+id/soreThroatCheckbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="top" />
+
+            <TextView
+                android:id="@+id/soreThroatTextview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sore throat" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/fatigueLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@color/gray"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <CheckBox
+                android:id="@+id/fatigueCheckbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="top" />
+
+            <TextView
+                android:id="@+id/fatigueTextview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fatigue" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:text="Save" />
+
+</LinearLayout>

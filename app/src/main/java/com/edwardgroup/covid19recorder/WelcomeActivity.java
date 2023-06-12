@@ -21,6 +21,7 @@ public class WelcomeActivity extends AppCompatActivity {
         if(auth.getCurrentUser() != null){
             Log.d(TAG, "onStart: Logged in, switch to HomeActivity");
             startActivity(new Intent(WelcomeActivity.this, HomeActivity.class));
+            finish();
         }
     }
 

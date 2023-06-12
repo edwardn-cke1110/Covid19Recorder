@@ -32,6 +32,20 @@
                 android:value="" />
         </activity>
         <activity
+            android:name=".AddSymptomsActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".SettingsActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".RegisterActivity"
             android:exported="false" >
             <meta-data
@@ -64,6 +78,13 @@
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="your_lib_name_here" /> <!-- Provide a valid value for your library name -->
+        </activity>
+        <activity
+            android:name=".ShareRecordsActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
         </activity>
     </application>
 

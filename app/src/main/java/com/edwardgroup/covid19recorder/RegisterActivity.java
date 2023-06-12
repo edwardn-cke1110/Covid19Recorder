@@ -15,11 +15,13 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.Timestamp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firestore.v1.FirestoreGrpc;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -46,7 +48,7 @@ public class RegisterActivity extends AppCompatActivity {
                         {
                             // Sign in success
                             Log.d(TAG, "createUserWithEmail: success");
-                            addUserToFirebase(auth.getUid());
+                            addUserToFirestore(auth.getUid());
                             startActivity(new Intent(RegisterActivity.this, HomeActivity.class));
                             finish();
                         } else
@@ -59,10 +61,14 @@ public class RegisterActivity extends AppCompatActivity {
                 });
     }
 
-    public void addUserToFirebase(String uid)
+    public void addUserToFirestore(String uid)
     {
         // add blank BSON file to Firestore
         Map<String, Object> newUser = new HashMap<>();
+
+        newUser.put("name", "New User");
+        newUser.put("phoneNo", "");
+        newUser.put("symptoms", Collections.emptyList());
 
         db.collection("usr").document(uid)
                 .set(newUser)
@@ -78,6 +84,15 @@ public class RegisterActivity extends AppCompatActivity {
                         Log.w(TAG, "Error writing document", e);
                     }
                 });
+
+        Map<String, Object> newMessage = new HashMap<>();
+        newMessage.put("message", "Account created");
+        newMessage.put("timestamp", Timestamp.now());
+
+        db.collection("usr")
+                .document(uid)
+                .collection("messages")
+                .add(newMessage);
     }
 
     @Override

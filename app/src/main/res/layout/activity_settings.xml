@@ -1,54 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Settings">
+    android:layout_margin="20dp"
+    android:orientation="vertical"
+    tools:context=".SettingsActivity">
 
     <TextView
-        android:id="@+id/title_text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Settings"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"/>
-
-    <Button
-        android:id="@+id/account_button"
+        android:id="@+id/settingsTv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Account"
-        android:textSize="18sp"
-        app:layout_constraintTop_toBottomOf="@+id/title_text_view"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"/>
+        android:text="@string/settings"
+        android:textSize="30sp" />
 
     <Button
-        android:id="@+id/notification_button"
+        android:id="@+id/settingsAccountButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Notification"
-        android:textSize="18sp"
-        app:layout_constraintTop_toBottomOf="@+id/account_button"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"/>
+        android:text="@string/account" />
 
     <Button
-        android:id="@+id/help_support_button"
+        android:id="@+id/settingsNotiButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="HELP &amp; Support"
-        android:textSize="18sp"
-        app:layout_constraintTop_toBottomOf="@+id/notification_button"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"/>
+        android:text="@string/notifications" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <Button
+        android:id="@+id/settingsSupportButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/help_and_support" />
+
+    <Button
+        android:id="@+id/settingsShareButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/share_records" />
+
+    <Button
+        android:id="@+id/signOutBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/sign_out" />
+
+</LinearLayout>
