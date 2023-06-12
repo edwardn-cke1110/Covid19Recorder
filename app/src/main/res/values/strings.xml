@@ -15,4 +15,11 @@
     <string name="confirm_username_text">Confirm email</string>
     <string name="password_text">Password</string>
     <string name="confirm_password_text">Confirm password</string>
+    <string name="settings_btn_speak">Settings Button</string>
+    <string name="default_name">((name))</string>
+    <string name="symptoms">Symptoms</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="not_affected">Not currently affected by Covid-19</string>
+    <string name="whats_your_symptom">What\'s your symptom?</string>
 </resources>
